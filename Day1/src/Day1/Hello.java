@@ -3,24 +3,50 @@ import java.util.Scanner;
 public class Hello {
 	public static void main(String[] args) {
 
-		for (int i = 1; i <= 3; i++) {
-			for (int j = 1; j <= 3 - i; j++) {
-				System.out.print(" ");
-			}
-			for (int k = 1; k <= i * 2 - 1; k++) {
-				System.out.print("*");
-			}
-			System.out.println();
-		}
+		Scanner sc;
+		sc = new Scanner(System.in);
+		char input;
 
-		for (int i = 2; i >= 1; i--) {
-			for (int j = 1; j <= 3 - i; j++) {
-				System.out.print(" ");
+//do while문 사용
+		do {
+			System.out.print("숫자를 입력하세요:");
+			int a = sc.nextInt();
+			System.out.print("연산자를 입력하세요:");
+			String result = sc.next();
+			System.out.print("숫자를 입력하세요:");
+			int b = sc.nextInt();
+// 사칙연산 계산기
+			switch (result) {
+			case "+":
+				System.out.println(a + b);
+				break;
+			case "-":
+				System.out.println(a - b);
+				break;
+			case "*":
+				System.out.println(a * b);
+				break;
+			case "/":
+				System.out.println(a / b);
+				break;
+			default:
+				System.out.println("잘못된 입력");
+				break;
 			}
-			for (int k = 1; k <= i * 2 - 1; k++) {
-				System.out.print("*");
+
+			// 결과 출력
+			System.out.println("계속 하시겠습니까? (Y,y)");
+			input = sc.next().charAt(0);
+
+			switch (input) {
+			case 'Y':
+			case 'y':
+				break;
+			default:
+				System.out.println("잘못된 입력");
+				break;
 			}
-			System.out.println();
-		}
+// or 조건
+		} while (input == 'y' || input == 'Y');
 	}
 }
